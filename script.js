@@ -39,12 +39,15 @@ boxes.forEach(box => {
 });
 
 // Smooth scroll for back to top button
-document.querySelector('.foot-panel1').addEventListener('click', function() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+const footPanel = document.querySelector('.foot-panel1');
+if (footPanel) {
+    footPanel.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
-});
+}
 
 // Handle window resize
 window.addEventListener('resize', function() {
