@@ -1,29 +1,29 @@
-/** Amazon-style: white wordmark + orange smile arrow (dark navbar) */
+/** QuickCart logo: white wordmark + orange cart icon (dark navbar) */
 export function AmazonLogo({ className = '' }) {
   return (
     <svg
       className={`amazon-logo-svg ${className}`.trim()}
-      viewBox="0 0 90 28"
-      width="90"
+      viewBox="0 0 100 28"
+      width="100"
       height="28"
       role="img"
-      aria-label="Amazone"
+      aria-label="QuickCart"
     >
       <text
         x="0"
         y="19"
         fill="#ffffff"
-        fontSize="20"
+        fontSize="18"
         fontWeight="700"
         fontFamily="Arial, Helvetica, sans-serif"
         letterSpacing="-0.5"
       >
-        amazon
+        QuickCart
       </text>
-      {/* Orange smile arrow (a → z) */}
+      {/* Cart icon */}
       <path
         fill="#FF9900"
-        d="M5.5 21.8c11.2 7.2 25.8 7.2 37 0 .35-.25.75-.15 1.05.2l1.2 1.3c.28.3.05.75-.38.8-12.8 7.2-29.5 7.2-42.3 0-.43-.05-.66-.5-.38-.8l1.2-1.3c.3-.35.7-.45 1.05-.2z"
+        d="M85 8h-2l-1.5-3h-5l-1.5 3h-2l-1 12h14l-1-12zm-7 0l1-2h2l1 2h-4z"
       />
     </svg>
   )

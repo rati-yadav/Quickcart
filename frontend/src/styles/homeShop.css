@@ -137,6 +137,38 @@
   font-weight: 600;
 }
 
+.category-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 8px;
+}
+.cat-add-btn {
+  background: linear-gradient(180deg, #f7dfa5, #f0c14b);
+  border: 1px solid #a88734;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.cat-add-btn:hover {
+  filter: brightness(0.98);
+}
+.cat-view-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: transparent;
+  border: 1px solid #d5d9d9;
+  color: #007185;
+  text-decoration: none;
+  font-weight: 600;
+}
+.cat-view-btn:hover {
+  border-color: #e77600;
+}
+
 .discount-section-link {
   display: block;
   transition: opacity 0.2s;

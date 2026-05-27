@@ -3,6 +3,7 @@ import { useCart } from '../context/CartContext'
 import { useLanguage } from '../context/LanguageContext'
 import { StarRating } from './StarRating'
 import { WishlistButton } from './WishlistButton'
+import { ImageWithFallback } from './ImageWithFallback'
 
 export function ProductCard({ product }) {
   const { addItem } = useCart()
@@ -13,7 +14,7 @@ export function ProductCard({ product }) {
       <Link to={`/product/${product.slug}`} className="product-card-link">
         <div className="product-card-image-wrap">
           <WishlistButton product={product} className="on-card" />
-          <img src={product.image_url} alt={product.name} loading="lazy" />
+          <ImageWithFallback src={product.image_url} alt={product.name} loading="lazy" />
           <div className="product-card-overlay">
             <button
               type="button"

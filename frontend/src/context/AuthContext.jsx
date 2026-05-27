@@ -4,9 +4,9 @@ import { api, setToken as persistToken } from '../api/client'
 const AuthContext = createContext(null)
 
 export function AuthProvider({ children }) {
-  const [token, setTokenState] = useState(() => localStorage.getItem('amazone_token'))
+  const [token, setTokenState] = useState(() => localStorage.getItem('quickcart_token'))
   const [user, setUser] = useState(() => {
-    const raw = localStorage.getItem('amazone_user')
+    const raw = localStorage.getItem('quickcart_user')
     return raw ? JSON.parse(raw) : null
   })
 
@@ -14,8 +14,8 @@ export function AuthProvider({ children }) {
     persistToken(nextToken)
     setTokenState(nextToken)
     setUser(nextUser)
-    if (nextUser) localStorage.setItem('amazone_user', JSON.stringify(nextUser))
-    else localStorage.removeItem('amazone_user')
+    if (nextUser) localStorage.setItem('quickcart_user', JSON.stringify(nextUser))
+    else localStorage.removeItem('quickcart_user')
   }, [])
 
   const logout = useCallback(() => {

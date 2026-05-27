@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { interpolate, translations, LANG_STORAGE_KEY } from '../i18n/translations'
 
-const STORAGE_KEY = 'amazone_cart'
+const STORAGE_KEY = 'quickcart_cart'
 
 const CartContext = createContext(null)
 

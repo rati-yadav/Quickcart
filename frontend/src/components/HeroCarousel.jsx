@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { HERO_SLIDES } from '../data/homeContent'
+import { ImageWithFallback } from './ImageWithFallback'
 
 export function HeroCarousel() {
   const { messages } = useLanguage()
@@ -25,7 +26,7 @@ export function HeroCarousel() {
           const text = slides[index] || slides[0]
           return (
             <div key={index} className={`hero-slide ${index === current ? 'active' : ''}`}>
-              <img
+              <ImageWithFallback
                 className="hero-slide-img"
                 src={slide.image}
                 alt=""

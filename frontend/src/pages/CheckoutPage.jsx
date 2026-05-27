@@ -6,6 +6,8 @@ import { api } from '../api/client'
 
 import { PaymentMethodPicker } from '../components/PaymentMethods'
 
+import { ImageWithFallback } from '../components/ImageWithFallback'
+
 import { useAuth } from '../context/AuthContext'
 
 import { useCart } from '../context/CartContext'
@@ -468,7 +470,7 @@ export function CheckoutPage() {
 
               <li key={row.productId}>
 
-                <img src={row.product?.image_url} alt="" />
+                <ImageWithFallback src={row.product?.image_url} alt="" />
 
                 <div>
 

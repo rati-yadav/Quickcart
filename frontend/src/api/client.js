@@ -1,4 +1,4 @@
-const TOKEN_KEY = 'amazone_token'
+const TOKEN_KEY = 'quickcart_token'
 
 export function getToken() {
   return localStorage.getItem(TOKEN_KEY)

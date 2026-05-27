@@ -4,6 +4,8 @@ import { api } from '../api/client'
 import { HeroCarousel } from '../components/HeroCarousel'
 import { ShopDealBox } from '../components/ShopDealBox'
 import { ProductCard } from '../components/ProductCard'
+import { ImageWithFallback } from '../components/ImageWithFallback'
+import { useCart } from '../context/CartContext'
 import { useLanguage } from '../context/LanguageContext'
 import {
   CATEGORY_STRIP,
@@ -17,6 +19,7 @@ export function HomePage() {
   const { t, tCategory } = useLanguage()
   const [products, setProducts] = useState([])
   const [loadError, setLoadError] = useState(null)
+  const { addItem } = useCart()
 
   useEffect(() => {
     api('/products/')
@@ -66,11 +69,46 @@ export function HomePage() {
               const params = new URLSearchParams()
               if (cat.category) params.set('category', cat.category)
               if (cat.query) params.set('q', cat.query)
+              const searchPath = `/search?${params.toString()}`
+
+              const quickAdd = async () => {
+                try {
+                  const qparams = cat.category
+                    ? `?category=${encodeURIComponent(cat.category)}`
+                    : cat.query
+                    ? `?q=${encodeURIComponent(cat.query)}`
+                    : ''
+                  const prods = await api(`/products/${qparams}`)
+                  if (!prods || !prods.length) {
+                    window.alert('No products found for this category')
+                    return
+                  }
+                  addItem(prods[0])
+                } catch (err) {
+                  // silent
+                  console.error(err)
+                  window.alert('Could not add product')
+                }
+              }
+
+              const imageSrc =
+                cat.image && !/^https?:\/\//i.test(cat.image) ? `/images/${cat.image}` : cat.image
+
               return (
-                <Link key={cat.label} to={`/search?${params.toString()}`} className="category-strip-item">
-                  <img src={cat.image} alt={cat.label} />
-                  <span>{tCategory(cat.label)}</span>
-                </Link>
+                <div key={cat.label} className="category-strip-item">
+                  <Link to={searchPath} className="category-strip-link">
+                    <ImageWithFallback src={imageSrc} alt={cat.label} />
+                    <span>{tCategory(cat.label)}</span>
+                  </Link>
+                  <div className="category-actions">
+                    <button type="button" className="cat-add-btn" onClick={quickAdd}>
+                      Add to cart
+                    </button>
+                    <Link to={searchPath} className="cat-view-btn">
+                      View
+                    </Link>
+                  </div>
+                </div>
               )
             })}
           </div>
@@ -82,7 +120,7 @@ export function HomePage() {
             to={`/search?category=${encodeURIComponent(banner.category)}`}
             className="discount-section discount-section-link"
           >
-            <img src={banner.image} alt={banner.title} />
+            <ImageWithFallback src={banner.image} alt={banner.title} />
           </Link>
         ))}
 

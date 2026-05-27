@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { api } from '../api/client'
 import { useCart } from '../context/CartContext'
 import { useLanguage } from '../context/LanguageContext'
+import { ImageWithFallback } from './ImageWithFallback'
 
 export function CategoryShopModal({ box, onClose }) {
   const { addItem } = useCart()
@@ -41,7 +42,7 @@ export function CategoryShopModal({ box, onClose }) {
         </button>
 
         <div className="shop-modal-header">
-          <img src={box.image} alt="" />
+          <ImageWithFallback src={box.image} alt="" />
           <div>
             {box.badge ? <span className="shop-modal-badge">{box.badge}</span> : null}
             <h2>{box.title}</h2>
@@ -82,7 +83,7 @@ export function CategoryShopModal({ box, onClose }) {
             {products.map((p) => (
               <article key={p.id} className="shop-modal-product">
                 <Link to={`/product/${p.slug}`} onClick={onClose}>
-                  <img src={p.image_url} alt="" />
+                  <ImageWithFallback src={p.image_url} alt="" />
                   <span className="shop-modal-product-name">{p.name}</span>
                 </Link>
                 <p className="shop-modal-product-price">₹{Number(p.price).toFixed(2)}</p>

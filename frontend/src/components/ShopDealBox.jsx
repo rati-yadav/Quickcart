@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useLanguage } from '../context/LanguageContext'
 import { CategoryShopModal } from './CategoryShopModal'
+import { ImageWithFallback } from './ImageWithFallback'
 
 export function ShopDealBox({ box }) {
   const { t } = useLanguage()
@@ -13,7 +14,9 @@ export function ShopDealBox({ box }) {
           {box.badge ? <span className="box-badge">{box.badge}</span> : null}
           <h2>{box.title}</h2>
           <p className="box-desc">{box.description}</p>
-          <div className="box-image" style={{ backgroundImage: `url('${box.image}')` }} />
+          <div className="box-image">
+            <ImageWithFallback src={box.image} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          </div>
           <ul className="box-preview-options">
             {box.options.slice(0, 3).map((opt) => (
               <li key={opt.label}>{opt.label}</li>

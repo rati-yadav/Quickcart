@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { PaymentMethodsBanner } from '../components/PaymentMethods'
+import { ImageWithFallback } from '../components/ImageWithFallback'
 import { useAuth } from '../context/AuthContext'
 import { useCart } from '../context/CartContext'
 import { useLanguage } from '../context/LanguageContext'
@@ -31,7 +32,7 @@ export function CartPage() {
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               {items.map((row) => (
                 <li key={row.productId} className="cart-row">
-                  <img src={row.product?.image_url} alt="" />
+                  <ImageWithFallback src={row.product?.image_url} alt="" />
                   <div>
                     <div className="cart-row-title">{row.product?.name}</div>
                     <div className="cart-row-price">₹{Number(row.product?.price).toFixed(2)}</div>

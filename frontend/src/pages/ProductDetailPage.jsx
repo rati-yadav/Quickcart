@@ -5,6 +5,7 @@ import { ProductCard } from '../components/ProductCard'
 import { ProductReviews } from '../components/ProductReviews'
 import { StarRating } from '../components/StarRating'
 import { WishlistButton } from '../components/WishlistButton'
+import { ImageWithFallback } from '../components/ImageWithFallback'
 import { useCart } from '../context/CartContext'
 import { useLanguage } from '../context/LanguageContext'
 import '../styles/productDetail.css'
@@ -55,7 +56,7 @@ export function ProductDetailPage() {
       <div className="product-detail-grid">
         <div className="product-detail-image">
           <WishlistButton product={product} />
-          <img src={product.image_url} alt={product.name} />
+          <ImageWithFallback src={product.image_url} alt={product.name} />
         </div>
         <div className="product-detail-info">
           <p className="product-detail-category">{tCategory(product.category)}</p>

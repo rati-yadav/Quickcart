@@ -1,4 +1,5 @@
 import { useLanguage } from '../context/LanguageContext'
+import { AmazonLogo } from './AmazonLogo'
 
 export function SiteFooter() {
   const { lang, setLang, t } = useLanguage()
@@ -37,11 +38,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="footer-locale">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
-          alt="Amazone"
-          className="footer-logo"
-        />
+        <AmazonLogo className="footer-logo" />
         <select
           className="footer-select"
           aria-label="Language"
