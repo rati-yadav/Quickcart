@@ -4,16 +4,13 @@ Full-stack e-commerce storefront: **React (Vite)** frontend, **Django REST** bac
 
 # Images 
 ## Homepage
-<img width="1920" height="1080" alt="Screenshot (482)" src="https://github.com/user-attachments/assets/6d18a637-459c-4bea-8d95-06d1a9e6d782" />
+<img width="1898" height="926" alt="Screenshot (532)" src="https://github.com/user-attachments/assets/44c922ea-2c98-4e0d-8621-d12a6d2bc4e4" />
 
-## Products 
-<img width="1920" height="1080" alt="Screenshot (483)" src="https://github.com/user-attachments/assets/dc53911c-36d4-4d5c-b679-e97fb7016dc7" />
+
 
 ## Cart
-<img width="1920" height="1080" alt="Screenshot (486)" src="https://github.com/user-attachments/assets/e9ec4010-85ec-4f78-b6a9-f0207c211573" />
+<img width="1888" height="932" alt="Screenshot (533)" src="https://github.com/user-attachments/assets/9671f35d-f837-4bc3-9f4a-d9d2cf841a75" />
 
-## Orders
-<img width="1920" height="1080" alt="Screenshot (485)" src="https://github.com/user-attachments/assets/e82549f3-6203-4e31-80bc-55951da3edba" />
 
 
 ## Features
