@@ -1,4 +1,19 @@
 const TOKEN_KEY = 'quickcart_token'
+const API_BASE_URL = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '')
+
+function buildApiUrl(path) {
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`
+
+  if (!API_BASE_URL) {
+    return `/api${normalizedPath}`
+  }
+
+  if (API_BASE_URL.endsWith('/api')) {
+    return `${API_BASE_URL}${normalizedPath}`
+  }
+
+  return `${API_BASE_URL}/api${normalizedPath}`
+}
 
 export function getToken() {
   return localStorage.getItem(TOKEN_KEY)
@@ -17,7 +32,7 @@ export async function api(path, options = {}) {
   const token = getToken()
   if (token) headers.Authorization = `Token ${token}`
 
-  const res = await fetch(`/api${path}`, {
+  const res = await fetch(buildApiUrl(path), {
     ...options,
     headers,
   })
