@@ -1,5 +1,6 @@
 const TOKEN_KEY = 'quickcart_token'
-const API_BASE_URL = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '')
+// const API_BASE_URL = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '')
+const API_BASE_URL = 'https://quickcart-ku03.onrender.com'
 
 function buildApiUrl(path) {
   const normalizedPath = path.startsWith('/') ? path : `/${path}`
